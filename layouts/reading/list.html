@@ -7,135 +7,195 @@
   {{- end }}
 </header>
 
-{{- $books := hugo.Data.books.books }}
-{{- if $books }}
+{{- $notes := where site.RegularPages "Section" "garden" -}}
+{{- $ids := slice -}}
+{{- range $n := $notes -}}{{- $ids = $ids | append $n.File.BaseFileName -}}{{- end -}}
 
-{{- $total := len $books }}
-{{- $totalPages := 0 }}
-{{- $ratingsSum := 0 }}
-{{- range $books }}
-  {{- $totalPages = add $totalPages (.pages | default 0) }}
-  {{- $ratingsSum = add $ratingsSum (.rating | default 0) }}
-{{- end }}
-{{- $avgRating := 0.0 }}
-{{- if gt $total 0 }}{{ $avgRating = div (float $ratingsSum) (float $total) }}{{ end }}
+{{- $nodes := slice -}}
+{{- $edges := slice -}}
+{{- range $n := $notes -}}
+  {{- $id := $n.File.BaseFileName -}}
+  {{- $primary := "" -}}
+  {{- with $n.Params.tags -}}{{- $primary = index . 0 -}}{{- end -}}
+  {{- $nodes = $nodes | append (dict
+    "id" $id
+    "title" $n.Title
+    "url" $n.RelPermalink
+    "tags" ($n.Params.tags | default (slice))
+    "status" ($n.Params.status | default "seedling")
+    "description" ($n.Description | default "")
+    "group" $primary
+  ) -}}
+  {{- range $n.Params.links | default (slice) -}}
+    {{- if in $ids . -}}
+      {{- $edges = $edges | append (dict "source" $id "target" .) -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
-<section class="reading-stats">
-  <div class="reading-stat"><span class="stat-value">{{ $total }}</span><span class="stat-label">books</span></div>
-  <div class="reading-stat"><span class="stat-value">{{ $totalPages }}</span><span class="stat-label">pages</span></div>
-  <div class="reading-stat"><span class="stat-value">{{ printf "%.1f" $avgRating }}</span><span class="stat-label">avg ★</span></div>
-</section>
+{{- $graph := dict "nodes" $nodes "links" $edges -}}
 
-{{- $allTags := slice }}
-{{- range $books }}
-  {{- range .tags }}
-    {{- if not (in $allTags .) }}{{ $allTags = $allTags | append . }}{{ end }}
-  {{- end }}
-{{- end }}
-
-{{- if $allTags }}
-<div class="reading-tagbar">
-  <button class="reading-filter active" data-tag="__all">all</button>
-  {{- range (sort $allTags) }}
-  <button class="reading-filter" data-tag="{{ . | urlize }}">{{ . }}</button>
-  {{- end }}
-</div>
-{{- end }}
-
-{{- $byYear := dict }}
-{{- range $books }}
-  {{- $y := (time .finished).Year | string }}
-  {{- $arr := index $byYear $y | default (slice) }}
-  {{- $arr = $arr | append . }}
-  {{- $byYear = merge $byYear (dict $y $arr) }}
-{{- end }}
-
-{{- $years := slice }}
-{{- range $k, $_ := $byYear }}{{ $years = $years | append $k }}{{ end }}
-{{- $years = sort $years "value" "desc" }}
-
-<section class="reading-viz">
-  {{- range $year := $years }}
-  {{- $entries := index $byYear $year }}
-  <div class="reading-year" data-year="{{ $year }}">
-    <h2 class="reading-year-label">{{ $year }}</h2>
-    <div class="reading-shelf">
-      {{- range $entries }}
-      {{- $width := (.pages | default 250) }}
-      {{- $width = div $width 6 }}
-      {{- if lt $width 30 }}{{ $width = 30 }}{{ end }}
-      {{- if gt $width 180 }}{{ $width = 180 }}{{ end }}
-      <a class="book-tile"
-         data-rating="{{ .rating | default 0 }}"
-         data-tags="{{ range .tags }}{{ . | urlize }} {{ end }}"
-         style="width: {{ $width }}px;"
-         href="#book-{{ (time .finished).Format "20060102" }}-{{ .title | urlize }}">
-        <span class="book-tile-title">{{ .title }}</span>
-        <span class="book-tile-hover">
-          <strong>{{ .title }}</strong>
-          <em>{{ .author }}</em>
-          <span>{{ .pages }} pages · {{ strings.Repeat (.rating | default 0) "★" }}{{ strings.Repeat (sub 5 (.rating | default 0)) "☆" }}</span>
-          <span class="book-tile-date">{{ (time .finished).Format "Jan 2006" }}</span>
-        </span>
-      </a>
-      {{- end }}
+{{- if $nodes }}
+<div class="graph-wrap">
+  <div class="graph-toolbar">
+    <input type="search" id="graph-search" placeholder="search notes or tags…" autocomplete="off" />
+    <div class="graph-zoom">
+      <button type="button" id="graph-zoom-in"  aria-label="zoom in">+</button>
+      <button type="button" id="graph-zoom-out" aria-label="zoom out">−</button>
+      <button type="button" id="graph-reset"    aria-label="reset view">⟳</button>
     </div>
   </div>
-  {{- end }}
-</section>
+  <svg id="graph-svg" role="img" aria-label="Graph of interlinked garden notes"></svg>
+  <div class="graph-legend" id="graph-legend"></div>
+  <p class="graph-hint">hover a node to see its neighbourhood · click to open the note · drag to pin · scroll to zoom</p>
+</div>
 
-<section class="reading-list">
-  {{- range $year := $years }}
-  {{- $entries := index $byYear $year }}
-  <h2 class="reading-list-year" id="year-{{ $year }}">{{ $year }}</h2>
-  <ul class="reading-list-books">
-    {{- range (sort $entries "finished" "desc") }}
-    <li class="reading-list-entry"
-        id="book-{{ (time .finished).Format "20060102" }}-{{ .title | urlize }}"
-        data-tags="{{ range .tags }}{{ . | urlize }} {{ end }}">
-      <div class="reading-list-head">
-        <span class="reading-list-title">{{ .title }}</span>
-        <span class="reading-list-author">{{ .author }}</span>
-        <span class="reading-list-meta">
-          <span class="reading-list-rating">{{ strings.Repeat (.rating | default 0) "★" }}{{ strings.Repeat (sub 5 (.rating | default 0)) "☆" }}</span>
-          <span class="reading-list-dates">{{ (time .started).Format "Jan" }} → {{ (time .finished).Format "Jan 2006" }}</span>
-          <span class="reading-list-pages">{{ .pages }} pp.</span>
-        </span>
-      </div>
-      {{- with .review }}<p class="reading-list-review">{{ . }}</p>{{ end }}
-      {{- with .tags }}
-      <div class="reading-list-tags">{{ range . }}<span class="tag-chip">{{ . }}</span>{{ end }}</div>
-      {{- end }}
-    </li>
-    {{- end }}
-  </ul>
-  {{- end }}
-</section>
-
+<script type="application/json" id="graph-data">{{ $graph | jsonify | safeJS }}</script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script>
 <script>
 (function(){
-  var buttons = document.querySelectorAll('.reading-filter');
-  var tiles = document.querySelectorAll('.book-tile');
-  var entries = document.querySelectorAll('.reading-list-entry');
-  buttons.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      buttons.forEach(function(b){ b.classList.remove('active'); });
-      btn.classList.add('active');
-      var tag = btn.getAttribute('data-tag');
-      function matches(el){
-        if(tag === '__all') return true;
-        var t = ' ' + (el.getAttribute('data-tags') || '') + ' ';
-        return t.indexOf(' ' + tag + ' ') !== -1;
-      }
-      tiles.forEach(function(e){ e.style.opacity = matches(e) ? '1' : '0.15'; });
-      entries.forEach(function(e){ e.style.display = matches(e) ? '' : 'none'; });
+  var data = JSON.parse(document.getElementById('graph-data').textContent);
+  var svg = d3.select('#graph-svg');
+  var wrap = svg.node().parentNode;
+
+  function dims(){
+    var w = wrap.clientWidth || 800;
+    var h = Math.max(520, Math.min(780, Math.round(window.innerHeight * 0.72)));
+    return {w: w, h: h};
+  }
+  var d0 = dims();
+  svg.attr('viewBox', '0 0 ' + d0.w + ' ' + d0.h);
+
+  var tags = Array.from(new Set(data.nodes.map(function(n){ return n.group || 'note'; })));
+  var color = d3.scaleOrdinal().domain(tags).range(d3.schemeTableau10);
+
+  var degree = {};
+  data.nodes.forEach(function(n){ degree[n.id] = 0; });
+  data.links.forEach(function(l){ degree[l.source] = (degree[l.source]||0)+1; degree[l.target] = (degree[l.target]||0)+1; });
+  function radius(d){ return 5 + 4 * Math.sqrt(degree[d.id] || 0); }
+
+  var adj = {};
+  data.nodes.forEach(function(n){ adj[n.id] = new Set([n.id]); });
+  data.links.forEach(function(l){ adj[l.source].add(l.target); adj[l.target].add(l.source); });
+
+  var sim = d3.forceSimulation(data.nodes)
+    .force('link', d3.forceLink(data.links).id(function(d){ return d.id; }).distance(95).strength(0.55))
+    .force('charge', d3.forceManyBody().strength(-280))
+    .force('center', d3.forceCenter(d0.w/2, d0.h/2))
+    .force('collide', d3.forceCollide().radius(function(d){ return radius(d) + 14; }));
+
+  var root = svg.append('g').attr('class', 'graph-root');
+
+  var linkSel = root.append('g').attr('class','graph-edges').selectAll('line')
+    .data(data.links).join('line').attr('class','graph-edge');
+
+  var nodeG = root.append('g').attr('class','graph-nodes').selectAll('g')
+    .data(data.nodes).join('g').attr('class','graph-node')
+    .call(drag(sim));
+
+  nodeG.append('circle')
+    .attr('r', radius)
+    .attr('fill', function(d){ return color(d.group || 'note'); });
+
+  nodeG.append('text')
+    .attr('class','graph-label')
+    .attr('y', function(d){ return radius(d) + 13; })
+    .attr('text-anchor','middle')
+    .text(function(d){ return d.title; });
+
+  nodeG.append('title').text(function(d){
+    return d.title + (d.description ? '\n' + d.description : '');
+  });
+
+  var wasDragged = false;
+  nodeG
+    .on('pointerenter', function(e, d){ highlight(d); })
+    .on('pointerleave', function(){ reapplySearch(); })
+    .on('click', function(e, d){ if(!wasDragged) window.location.href = d.url; });
+
+  sim.on('tick', function(){
+    linkSel
+      .attr('x1', function(d){ return d.source.x; })
+      .attr('y1', function(d){ return d.source.y; })
+      .attr('x2', function(d){ return d.target.x; })
+      .attr('y2', function(d){ return d.target.y; });
+    nodeG.attr('transform', function(d){ return 'translate(' + d.x + ',' + d.y + ')'; });
+  });
+
+  var zoom = d3.zoom().scaleExtent([0.25, 4]).on('zoom', function(e){
+    root.attr('transform', e.transform);
+  });
+  svg.call(zoom);
+
+  d3.select('#graph-zoom-in').on('click', function(){ svg.transition().duration(200).call(zoom.scaleBy, 1.4); });
+  d3.select('#graph-zoom-out').on('click', function(){ svg.transition().duration(200).call(zoom.scaleBy, 0.7); });
+  d3.select('#graph-reset').on('click', function(){
+    svg.transition().duration(300).call(zoom.transform, d3.zoomIdentity);
+    data.nodes.forEach(function(n){ n.fx = null; n.fy = null; });
+    sim.alpha(0.8).restart();
+  });
+
+  var search = document.getElementById('graph-search');
+  search.addEventListener('input', reapplySearch);
+
+  function highlight(d){
+    var nb = adj[d.id];
+    nodeG.classed('dim', function(n){ return !nb.has(n.id); })
+         .classed('focus', function(n){ return n.id === d.id; });
+    linkSel.classed('dim', function(l){ return !(l.source.id === d.id || l.target.id === d.id); })
+           .classed('hot', function(l){ return (l.source.id === d.id || l.target.id === d.id); });
+  }
+
+  function reapplySearch(){
+    var q = (search.value || '').trim().toLowerCase();
+    nodeG.classed('focus', false);
+    linkSel.classed('hot', false);
+    if(!q){
+      nodeG.classed('dim', false);
+      linkSel.classed('dim', false);
+      return;
+    }
+    nodeG.classed('dim', function(d){
+      var hit = d.title.toLowerCase().indexOf(q) !== -1
+        || (d.tags || []).some(function(t){ return t.toLowerCase().indexOf(q) !== -1; });
+      return !hit;
     });
+    linkSel.classed('dim', true);
+  }
+
+  function drag(simulation){
+    return d3.drag()
+      .on('start', function(e, d){
+        wasDragged = false;
+        if(!e.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x; d.fy = d.y;
+      })
+      .on('drag', function(e, d){
+        wasDragged = true;
+        d.fx = e.x; d.fy = e.y;
+      })
+      .on('end', function(e){
+        if(!e.active) simulation.alphaTarget(0);
+        setTimeout(function(){ wasDragged = false; }, 50);
+      });
+  }
+
+  var legend = d3.select('#graph-legend');
+  tags.sort().forEach(function(t){
+    var item = legend.append('span').attr('class','graph-legend-item');
+    item.append('span').attr('class','graph-legend-dot').style('background', color(t));
+    item.append('span').text(t || 'untagged');
+  });
+
+  window.addEventListener('resize', function(){
+    var d = dims();
+    svg.attr('viewBox', '0 0 ' + d.w + ' ' + d.h);
+    sim.force('center', d3.forceCenter(d.w/2, d.h/2)).alpha(0.4).restart();
   });
 })();
 </script>
-
 {{- else }}
-<p><em>No books yet — data/books.yaml is empty.</em></p>
+<p><em>No notes yet — plant something in <code>content/garden/</code>.</em></p>
 {{- end }}
 
 {{- end }}

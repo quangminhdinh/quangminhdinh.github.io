@@ -1,5 +1,5 @@
 ---
-title: "Reading"
-description: "Books I've finished, loosely in reverse chronological order. Each tile below is a book — width scales with page count, colour with rating. Hover for details."
+title: "Graph"
+description: "An interactive map of my digital garden — each node is a note, each edge a wikilink. Drag to rearrange, hover to isolate a neighbourhood, click to open a note."
 hidemeta: true
 ---

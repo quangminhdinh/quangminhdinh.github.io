@@ -60,7 +60,7 @@ I'm an incoming PhD student interested in **world models** and **multi-agent soc
 
 I'm currently finishing my B.Sc. in Computing Science at **Simon Fraser University**, where I work with [Angelica Lim](https://www.rosielab.ca/) at Rosie Lab on real-time non-verbal human–robot interaction, and previously with [Ke Li](https://www.sfu.ca/~keli/) at APEX Lab on text-conditional generative models. Before SFU, I interned at **Huawei** on real-time acoustic echo cancellation — that work became my first-author paper at Interspeech 2025.
 
-Outside of research I keep a [digital garden](/garden/) of loose notes, and track what I'm [reading](/reading/).
+Outside of research I keep a [digital garden](/garden/) of loose notes — you can also wander through it as an interactive [graph](/reading/).
 """
 
   [[params.socialIcons]]
@@ -118,7 +118,7 @@ Outside of research I keep a [digital garden](/garden/) of loose notes, and trac
 
 [[menu.main]]
   identifier = "reading"
-  name = "reading"
+  name = "graph"
   url = "/reading/"
   weight = 40
 
