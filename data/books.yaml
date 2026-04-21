@@ -1,0 +1,108 @@
+books:
+  - title: "Gödel, Escher, Bach"
+    author: "Douglas Hofstadter"
+    started: 2026-01-03
+    finished: 2026-03-22
+    pages: 777
+    rating: 5
+    tags: [non-fiction, mind, mathematics]
+    review: "A cathedral of a book. I will be re-reading this for the rest of my life."
+
+  - title: "The Three-Body Problem"
+    author: "Liu Cixin"
+    started: 2026-02-10
+    finished: 2026-02-26
+    pages: 400
+    rating: 4
+    tags: [fiction, sci-fi]
+    review: "Best when it stops trying to be subtle and lets the ideas run free."
+
+  - title: "Reinforcement Learning: An Introduction"
+    author: "Sutton & Barto"
+    started: 2025-11-02
+    finished: 2026-01-30
+    pages: 552
+    rating: 5
+    tags: [technical, machine-learning]
+    review: "Re-read for the world models side quest. Chapters 13 and 17 hit differently the second time."
+
+  - title: "The Master and Margarita"
+    author: "Mikhail Bulgakov"
+    started: 2025-10-15
+    finished: 2025-11-20
+    pages: 384
+    rating: 5
+    tags: [fiction, classic]
+    review: "Read it on night shifts during the Huawei writeup. I will die on the hill that this is the funniest Russian novel."
+
+  - title: "Deep Learning"
+    author: "Goodfellow, Bengio, Courville"
+    started: 2025-08-01
+    finished: 2025-10-05
+    pages: 775
+    rating: 4
+    tags: [technical, machine-learning]
+    review: "Skimmed the probabilistic models chapters the first time; glad I came back."
+
+  - title: "Dune"
+    author: "Frank Herbert"
+    started: 2025-07-10
+    finished: 2025-07-28
+    pages: 688
+    rating: 5
+    tags: [fiction, sci-fi, classic]
+    review: "Read cover to cover on a Vancouver summer. A world where everybody knows the same world."
+
+  - title: "The Design of Everyday Things"
+    author: "Don Norman"
+    started: 2025-05-20
+    finished: 2025-06-04
+    pages: 368
+    rating: 4
+    tags: [non-fiction, design]
+    review: "Short but durable. I think about affordances during every demo now."
+
+  - title: "Pattern Recognition and Machine Learning"
+    author: "Christopher Bishop"
+    started: 2025-03-01
+    finished: 2025-05-12
+    pages: 738
+    rating: 4
+    tags: [technical, machine-learning]
+    review: "The Bayesian chapters are the reason people still cite this book."
+
+  - title: "Piranesi"
+    author: "Susanna Clarke"
+    started: 2025-02-20
+    finished: 2025-02-27
+    pages: 272
+    rating: 5
+    tags: [fiction, fantasy]
+    review: "Finished in a weekend. Still think about the halls."
+
+  - title: "Thinking, Fast and Slow"
+    author: "Daniel Kahneman"
+    started: 2024-12-01
+    finished: 2025-01-22
+    pages: 499
+    rating: 4
+    tags: [non-fiction, psychology]
+    review: "Stretches thin in the back half, but the first half pays for the ticket."
+
+  - title: "Project Hail Mary"
+    author: "Andy Weir"
+    started: 2024-10-05
+    finished: 2024-10-18
+    pages: 476
+    rating: 4
+    tags: [fiction, sci-fi]
+    review: "Pure enthusiasm. Feels written by someone who still loves physics."
+
+  - title: "The Little Schemer"
+    author: "Friedman & Felleisen"
+    started: 2024-09-01
+    finished: 2024-09-15
+    pages: 211
+    rating: 5
+    tags: [technical, programming]
+    review: "Read on the bus to Huawei. Recursion clicked for me here."

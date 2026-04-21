@@ -1,0 +1,141 @@
+{{- define "main" }}
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">{{ .Description | markdownify }}</div>
+  {{- end }}
+</header>
+
+{{- $books := hugo.Data.books.books }}
+{{- if $books }}
+
+{{- $total := len $books }}
+{{- $totalPages := 0 }}
+{{- $ratingsSum := 0 }}
+{{- range $books }}
+  {{- $totalPages = add $totalPages (.pages | default 0) }}
+  {{- $ratingsSum = add $ratingsSum (.rating | default 0) }}
+{{- end }}
+{{- $avgRating := 0.0 }}
+{{- if gt $total 0 }}{{ $avgRating = div (float $ratingsSum) (float $total) }}{{ end }}
+
+<section class="reading-stats">
+  <div class="reading-stat"><span class="stat-value">{{ $total }}</span><span class="stat-label">books</span></div>
+  <div class="reading-stat"><span class="stat-value">{{ $totalPages }}</span><span class="stat-label">pages</span></div>
+  <div class="reading-stat"><span class="stat-value">{{ printf "%.1f" $avgRating }}</span><span class="stat-label">avg ★</span></div>
+</section>
+
+{{- $allTags := slice }}
+{{- range $books }}
+  {{- range .tags }}
+    {{- if not (in $allTags .) }}{{ $allTags = $allTags | append . }}{{ end }}
+  {{- end }}
+{{- end }}
+
+{{- if $allTags }}
+<div class="reading-tagbar">
+  <button class="reading-filter active" data-tag="__all">all</button>
+  {{- range (sort $allTags) }}
+  <button class="reading-filter" data-tag="{{ . | urlize }}">{{ . }}</button>
+  {{- end }}
+</div>
+{{- end }}
+
+{{- $byYear := dict }}
+{{- range $books }}
+  {{- $y := (time .finished).Year | string }}
+  {{- $arr := index $byYear $y | default (slice) }}
+  {{- $arr = $arr | append . }}
+  {{- $byYear = merge $byYear (dict $y $arr) }}
+{{- end }}
+
+{{- $years := slice }}
+{{- range $k, $_ := $byYear }}{{ $years = $years | append $k }}{{ end }}
+{{- $years = sort $years "value" "desc" }}
+
+<section class="reading-viz">
+  {{- range $year := $years }}
+  {{- $entries := index $byYear $year }}
+  <div class="reading-year" data-year="{{ $year }}">
+    <h2 class="reading-year-label">{{ $year }}</h2>
+    <div class="reading-shelf">
+      {{- range $entries }}
+      {{- $width := (.pages | default 250) }}
+      {{- $width = div $width 6 }}
+      {{- if lt $width 30 }}{{ $width = 30 }}{{ end }}
+      {{- if gt $width 180 }}{{ $width = 180 }}{{ end }}
+      <a class="book-tile"
+         data-rating="{{ .rating | default 0 }}"
+         data-tags="{{ range .tags }}{{ . | urlize }} {{ end }}"
+         style="width: {{ $width }}px;"
+         href="#book-{{ (time .finished).Format "20060102" }}-{{ .title | urlize }}">
+        <span class="book-tile-title">{{ .title }}</span>
+        <span class="book-tile-hover">
+          <strong>{{ .title }}</strong>
+          <em>{{ .author }}</em>
+          <span>{{ .pages }} pages · {{ strings.Repeat (.rating | default 0) "★" }}{{ strings.Repeat (sub 5 (.rating | default 0)) "☆" }}</span>
+          <span class="book-tile-date">{{ (time .finished).Format "Jan 2006" }}</span>
+        </span>
+      </a>
+      {{- end }}
+    </div>
+  </div>
+  {{- end }}
+</section>
+
+<section class="reading-list">
+  {{- range $year := $years }}
+  {{- $entries := index $byYear $year }}
+  <h2 class="reading-list-year" id="year-{{ $year }}">{{ $year }}</h2>
+  <ul class="reading-list-books">
+    {{- range (sort $entries "finished" "desc") }}
+    <li class="reading-list-entry"
+        id="book-{{ (time .finished).Format "20060102" }}-{{ .title | urlize }}"
+        data-tags="{{ range .tags }}{{ . | urlize }} {{ end }}">
+      <div class="reading-list-head">
+        <span class="reading-list-title">{{ .title }}</span>
+        <span class="reading-list-author">{{ .author }}</span>
+        <span class="reading-list-meta">
+          <span class="reading-list-rating">{{ strings.Repeat (.rating | default 0) "★" }}{{ strings.Repeat (sub 5 (.rating | default 0)) "☆" }}</span>
+          <span class="reading-list-dates">{{ (time .started).Format "Jan" }} → {{ (time .finished).Format "Jan 2006" }}</span>
+          <span class="reading-list-pages">{{ .pages }} pp.</span>
+        </span>
+      </div>
+      {{- with .review }}<p class="reading-list-review">{{ . }}</p>{{ end }}
+      {{- with .tags }}
+      <div class="reading-list-tags">{{ range . }}<span class="tag-chip">{{ . }}</span>{{ end }}</div>
+      {{- end }}
+    </li>
+    {{- end }}
+  </ul>
+  {{- end }}
+</section>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.reading-filter');
+  var tiles = document.querySelectorAll('.book-tile');
+  var entries = document.querySelectorAll('.reading-list-entry');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var tag = btn.getAttribute('data-tag');
+      function matches(el){
+        if(tag === '__all') return true;
+        var t = ' ' + (el.getAttribute('data-tags') || '') + ' ';
+        return t.indexOf(' ' + tag + ' ') !== -1;
+      }
+      tiles.forEach(function(e){ e.style.opacity = matches(e) ? '1' : '0.15'; });
+      entries.forEach(function(e){ e.style.display = matches(e) ? '' : 'none'; });
+    });
+  });
+})();
+</script>
+
+{{- else }}
+<p><em>No books yet — data/books.yaml is empty.</em></p>
+{{- end }}
+
+{{- end }}

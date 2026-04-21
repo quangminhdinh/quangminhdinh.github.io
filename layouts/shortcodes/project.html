@@ -1,0 +1,30 @@
+{{- $title := .Get "title" -}}
+{{- $venue := .Get "venue" -}}
+{{- $image := .Get "image" -}}
+{{- $linksStr := .Get "links" -}}
+<article class="project-card">
+  {{- if $image }}
+  <div class="project-thumb">
+    <img src="{{ $image }}" alt="{{ $title }}" loading="lazy">
+  </div>
+  {{- end }}
+  <div class="project-body">
+    <h3 class="project-title">{{ $title }}</h3>
+    {{- with $venue }}<div class="project-venue">{{ . }}</div>{{- end }}
+    <div class="project-desc">{{ .Inner | markdownify }}</div>
+    {{- if $linksStr }}
+    <div class="project-links">
+      {{- range $i, $entry := split $linksStr ";" }}
+        {{- $kv := split $entry "=" -}}
+        {{- if eq (len $kv) 2 -}}
+          {{- $label := index $kv 0 -}}
+          {{- $url := index $kv 1 -}}
+          {{- if $url -}}
+          <a href="{{ $url }}" target="_blank" rel="noopener">{{ $label }} ↗</a>
+          {{- end -}}
+        {{- end -}}
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</article>

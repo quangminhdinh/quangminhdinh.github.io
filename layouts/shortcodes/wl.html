@@ -1,0 +1,9 @@
+{{- $slug := .Get 0 -}}
+{{- $label := .Get 1 -}}
+{{- $target := site.GetPage (printf "/garden/%s" $slug) -}}
+{{- if $target -}}
+  {{- $text := $label | default $target.Title -}}
+  <a class="wikilink" href="{{ $target.RelPermalink }}">{{ $text }}</a>
+{{- else -}}
+  <span class="wikilink wikilink-missing" title="Missing note: {{ $slug }}">{{ $label | default $slug }}</span>
+{{- end -}}

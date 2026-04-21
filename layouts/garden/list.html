@@ -1,0 +1,74 @@
+{{- define "main" }}
+<header class="page-header">
+  {{- partial "breadcrumbs.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- if .Description }}
+  <div class="post-description">{{ .Description | markdownify }}</div>
+  {{- end }}
+</header>
+
+{{- if .Content }}
+<div class="post-content garden-intro">
+  {{- partial "anchored_headings.html" .Content -}}
+</div>
+{{- end }}
+
+{{- $notes := where site.RegularPages "Section" "garden" }}
+
+{{- $tags := slice }}
+{{- range $notes }}
+  {{- with .Params.tags }}
+    {{- range . }}
+      {{- if not (in $tags .) }}{{ $tags = $tags | append . }}{{ end }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+{{- if $tags }}
+<div class="garden-tagbar">
+  <button class="garden-filter active" data-tag="__all">all</button>
+  {{- range (sort $tags) }}
+  <button class="garden-filter" data-tag="{{ . | urlize }}">#{{ . }}</button>
+  {{- end }}
+</div>
+{{- end }}
+
+<ul class="garden-list">
+  {{- range $notes.ByLastmod.Reverse }}
+  <li class="garden-entry" data-tags="{{ range .Params.tags }}{{ . | urlize }} {{ end }}">
+    <div class="garden-entry-meta">
+      <span class="garden-entry-date">{{ .Lastmod.Format "Jan 2, 2006" }}</span>
+      {{- with .Params.status }}<span class="note-status note-status-{{ . | urlize }}">{{ . }}</span>{{ end }}
+    </div>
+    <a class="garden-entry-title" href="{{ .RelPermalink }}">{{ .Title }}</a>
+    {{- with .Description }}<p class="garden-entry-desc">{{ . }}</p>{{ end }}
+    {{- with .Params.tags }}
+    <div class="garden-entry-tags">
+    {{- range . }}<span class="tag-chip">#{{ . }}</span>{{ end }}
+    </div>
+    {{- end }}
+  </li>
+  {{- end }}
+</ul>
+
+<script>
+(function(){
+  var buttons = document.querySelectorAll('.garden-filter');
+  var entries = document.querySelectorAll('.garden-entry');
+  buttons.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      buttons.forEach(function(b){ b.classList.remove('active'); });
+      btn.classList.add('active');
+      var tag = btn.getAttribute('data-tag');
+      entries.forEach(function(e){
+        if(tag === '__all' || (' ' + e.getAttribute('data-tags') + ' ').indexOf(' ' + tag + ' ') !== -1){
+          e.style.display = '';
+        } else {
+          e.style.display = 'none';
+        }
+      });
+    });
+  });
+})();
+</script>
+{{- end }}

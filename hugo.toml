@@ -1,0 +1,132 @@
+baseURL = "https://quangminhdinh.github.io/"
+languageCode = "en-us"
+title = "Quang Minh Dinh"
+theme = "PaperMod"
+
+enableRobotsTXT = true
+buildDrafts = false
+buildFuture = false
+buildExpired = false
+
+pygmentsUseClasses = true
+
+[minify]
+  disableXML = true
+  minifyOutput = true
+
+[pagination]
+  pagerSize = 10
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+  [markup.highlight]
+    noClasses = false
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    style = "monokai"
+
+[params]
+  env = "production"
+  title = "Quang Minh Dinh"
+  description = "Incoming PhD student interested in world models and multi-agent social interaction."
+  keywords = ["Quang Minh Dinh", "PhD", "world models", "machine learning", "computer vision"]
+  author = "Quang Minh Dinh"
+  DateFormat = "Jan 2, 2006"
+  defaultTheme = "auto"
+  disableThemeToggle = false
+
+  ShowReadingTime = true
+  ShowShareButtons = false
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowWordCount = false
+  ShowRssButtonInSectionTermList = true
+  UseHugoToc = true
+  ShowToc = false
+  disableSpecial1stPost = false
+  disableScrollToTop = false
+  comments = false
+  hidemeta = false
+  hideSummary = false
+
+  [params.homeInfoParams]
+    Title = "Hi, I'm Quang Minh 👋"
+    Content = """
+I'm an incoming PhD student interested in **world models** and **multi-agent social interaction** — how agents can maintain a shared understanding of their environment so that planning, coordination, and social behaviour feel seamless and lifelike rather than scripted.
+
+I'm currently finishing my B.Sc. in Computing Science at **Simon Fraser University**, where I work with [Angelica Lim](https://www.rosielab.ca/) at Rosie Lab on real-time non-verbal human–robot interaction, and previously with [Ke Li](https://www.sfu.ca/~keli/) at APEX Lab on text-conditional generative models. Before SFU, I interned at **Huawei** on real-time acoustic echo cancellation — that work became my first-author paper at Interspeech 2025.
+
+Outside of research I keep a [digital garden](/garden/) of loose notes, and track what I'm [reading](/reading/).
+"""
+
+  [[params.socialIcons]]
+    name = "email"
+    title = "Email"
+    url = "mailto:minh101202@gmail.com"
+  [[params.socialIcons]]
+    name = "github"
+    title = "GitHub"
+    url = "https://github.com/quangminhdinh"
+  [[params.socialIcons]]
+    name = "linkedin"
+    title = "LinkedIn"
+    url = "https://www.linkedin.com/in/quang-minh-dinh/"
+  [[params.socialIcons]]
+    name = "googlescholar"
+    title = "Google Scholar"
+    url = "https://scholar.google.com/citations?user=quangminhdinh"
+  [[params.socialIcons]]
+    name = "cv"
+    title = "CV"
+    url = "/cv.pdf"
+
+  [params.assets]
+    disableHLJS = true
+    disableFingerprinting = false
+    favicon = "/favicon.ico"
+
+  [params.fuseOpts]
+    isCaseSensitive = false
+    shouldSort = true
+    location = 0
+    distance = 1000
+    threshold = 0.4
+    minMatchCharLength = 0
+    keys = ["title", "permalink", "summary", "content"]
+
+[[menu.main]]
+  identifier = "publications"
+  name = "publications"
+  url = "/publications/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "projects"
+  name = "projects"
+  url = "/projects/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "garden"
+  name = "garden"
+  url = "/garden/"
+  weight = 30
+
+[[menu.main]]
+  identifier = "reading"
+  name = "reading"
+  url = "/reading/"
+  weight = 40
+
+[[menu.main]]
+  identifier = "search"
+  name = "search"
+  url = "/search/"
+  weight = 50
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]

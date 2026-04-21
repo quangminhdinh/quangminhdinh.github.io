@@ -1,0 +1,15 @@
+# Hugo build output
+public/
+resources/_gen/
+.hugo_build.lock
+
+# Local server logs
+hugo_server.log
+hugo_server.err.log
+
+# Raw source docs (kept locally only)
+raw/
+
+# OS
+.DS_Store
+Thumbs.db

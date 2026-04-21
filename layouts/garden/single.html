@@ -1,0 +1,85 @@
+{{- define "main" }}
+<article class="post-single garden-note">
+  <header class="post-header">
+    {{- partial "breadcrumbs.html" . }}
+    <h1 class="post-title entry-hint-parent">{{ .Title }}</h1>
+    {{- if .Description }}
+    <div class="post-description">{{ .Description }}</div>
+    {{- end }}
+    <div class="post-meta garden-meta">
+      {{- if .Params.status }}<span class="note-status note-status-{{ .Params.status | urlize }}">{{ .Params.status }}</span>{{ end }}
+      {{- with .Params.tags }}
+      <span class="note-tags">
+      {{- range . }}
+        <a href="/tags/{{ . | urlize }}/" class="tag-link">#{{ . }}</a>
+      {{- end }}
+      </span>
+      {{- end }}
+      <span class="note-dates">
+        planted <time>{{ .Date.Format site.Params.DateFormat }}</time>
+        {{- if ne (.Lastmod.Format "2006-01-02") (.Date.Format "2006-01-02") }}
+          · tended <time>{{ .Lastmod.Format site.Params.DateFormat }}</time>
+        {{- end }}
+      </span>
+    </div>
+  </header>
+
+  <div class="post-content">
+    {{- partial "anchored_headings.html" .Content -}}
+  </div>
+
+  {{- $current := . }}
+  {{- $forward := slice }}
+  {{- with .Params.links }}
+    {{- range . }}
+      {{- $p := site.GetPage (printf "/garden/%s" .) }}
+      {{- if $p }}{{- $forward = $forward | append $p }}{{ end }}
+    {{- end }}
+  {{- end }}
+
+  {{- $backlinks := slice }}
+  {{- range where site.RegularPages "Section" "garden" }}
+    {{- if ne .RelPermalink $current.RelPermalink }}
+      {{- $myLinks := .Params.links | default (slice) }}
+      {{- $mySlug := path.Base $current.File.Dir }}
+      {{- if .File.BaseFileName }}
+        {{- $currentSlug := $current.File.BaseFileName }}
+        {{- if in $myLinks $currentSlug }}
+          {{- $backlinks = $backlinks | append . }}
+        {{- end }}
+      {{- end }}
+      {{- $raw := .RawContent }}
+      {{- $needle := printf "\"%s\"" ($current.File.BaseFileName) }}
+      {{- if and (not (in $backlinks .)) (in $raw $needle) (in $raw "{{< wl ") }}
+        {{- $backlinks = $backlinks | append . }}
+      {{- end }}
+    {{- end }}
+  {{- end }}
+
+  {{- if or $forward $backlinks }}
+  <aside class="garden-links">
+    {{- if $forward }}
+    <section class="garden-forward">
+      <h3>Linked notes</h3>
+      <ul>
+        {{- range $forward }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Description }} — <span class="note-snippet">{{ . }}</span>{{ end }}</li>
+        {{- end }}
+      </ul>
+    </section>
+    {{- end }}
+    {{- if $backlinks }}
+    <section class="garden-backlinks">
+      <h3>Backlinks</h3>
+      <ul>
+        {{- range $backlinks }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Description }} — <span class="note-snippet">{{ . }}</span>{{ end }}</li>
+        {{- end }}
+      </ul>
+    </section>
+    {{- end }}
+  </aside>
+  {{- end }}
+
+</article>
+{{- end }}
