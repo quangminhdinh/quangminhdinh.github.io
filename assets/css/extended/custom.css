@@ -145,6 +145,12 @@
   margin-right: 0.9rem;
   color: var(--primary);
 }
+/* Bracket buttons ([code], [website], ...) are always lower case, on both the
+   all-projects cards and each project's single page. */
+.project-links a,
+.project-btn {
+  text-transform: lowercase;
+}
 
 /* ---------- Elegant animated underline (grows from left on hover) ----------
    Drawn as a background gradient (not a pseudo-element) so it underlines every
@@ -167,6 +173,40 @@
   background-size: 100% 1.5px;
 }
 
+/* ---------- In-text / body links across the whole site ----------
+   Same colour as the surrounding text (no blue), with a faint underline always
+   present (so a reader knows it's a link without relying on colour) and a
+   full-strength underline that grows in from the left on hover. Two stacked
+   gradients: bottom = static cue, top = animated. Applies to prose paragraphs
+   and list items in every content area (home, projects, publications, garden).
+   Garden wikilinks keep their own dashed style, so they're excluded. */
+.post-content p a:not(.wikilink),
+.post-content li a:not(.wikilink),
+.md-content p a:not(.wikilink),
+.md-content li a:not(.wikilink),
+.project-single-venue a,
+.project-single-footer a {
+  color: inherit;
+  text-decoration: none;
+  background-image:
+    linear-gradient(currentColor, currentColor),
+    linear-gradient(var(--secondary), var(--secondary));
+  background-repeat: no-repeat, no-repeat;
+  background-position: left 100%, left 100%;
+  background-size: 0% 1.5px, 100% 1px;
+  transition: background-size 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+}
+.post-content p a:not(.wikilink):hover,
+.post-content li a:not(.wikilink):hover,
+.md-content p a:not(.wikilink):hover,
+.md-content li a:not(.wikilink):hover,
+.project-single-venue a:hover,
+.project-single-footer a:hover {
+  background-size: 100% 1.5px, 100% 1px;
+}
+
 @media (max-width: 640px) {
   .project-card { grid-template-columns: 1fr; }
   .project-thumb { max-width: 60%; }
@@ -177,6 +217,16 @@
   font-size: 0.9rem;
   color: var(--secondary);
   margin: 0.3rem 0 0.6rem;
+}
+/* breathing room between major sections (Demos, Architecture, Takeaways, ...) */
+.project-content h2 {
+  margin-top: 3rem;
+}
+.project-content h3 {
+  margin-top: 2rem;
+}
+.project-content > h2:first-child {
+  margin-top: 1.5rem;
 }
 .project-single-links {
   display: flex;
@@ -228,22 +278,21 @@
 }
 .project-content .video-grid .video-embed { margin: 0; }
 .project-takeaways {
-  border-left: 3px solid var(--site-accent);
-  padding: 0.4rem 0 0.4rem 1.1rem;
-  margin: 1.5rem 0;
+  border-left: 3px solid var(--secondary);
+  padding: 0.85rem 1.1rem 0.85rem 1.2rem;
+  margin: 1.75rem 0;
   background: var(--code-bg);
   border-radius: 0 8px 8px 0;
 }
+.project-takeaways ul { margin: 0; padding-left: 1.2rem; }
+.project-takeaways li { margin: 0.5rem 0; line-height: 1.65; }
+.project-takeaways li:first-child { margin-top: 0; }
+.project-takeaways li:last-child { margin-bottom: 0; }
 .project-single-footer {
   margin-top: 2.5rem;
   padding-top: 1.25rem;
   border-top: 1px solid var(--border);
 }
-.project-single-footer a {
-  color: var(--site-accent);
-  text-decoration: none;
-}
-.project-single-footer a:hover { opacity: 0.75; }
 
 /* ---------- Garden ---------- */
 .garden-tagbar, .reading-tagbar {
