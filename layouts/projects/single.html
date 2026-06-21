@@ -1,0 +1,35 @@
+{{- define "main" }}
+<article class="post-single project-single">
+  <header class="post-header">
+    {{- partial "breadcrumbs.html" . }}
+    <h1 class="post-title entry-hint-parent">{{ .Title }}</h1>
+    {{- with .Params.venue }}<div class="project-single-venue">{{ . }}</div>{{- end }}
+    {{- if .Description }}
+    <div class="post-description">{{ .Description | markdownify }}</div>
+    {{- end }}
+    {{- with .Params.links }}
+    <div class="project-single-links">
+      {{- range $entry := split . ";" }}
+        {{- $entry = trim $entry " " -}}
+        {{- $parts := split $entry "=" -}}
+        {{- if ge (len $parts) 2 -}}
+          {{- $label := index $parts 0 -}}
+          {{- $url := delimit (after 1 $parts) "=" -}}
+          {{- if $url -}}
+          <a class="project-btn" href="{{ $url }}" target="_blank" rel="noopener">[{{ $label }}]</a>
+          {{- end -}}
+        {{- end -}}
+      {{- end }}
+    </div>
+    {{- end }}
+  </header>
+
+  <div class="post-content project-content">
+    {{- partial "anchored_headings.html" .Content -}}
+  </div>
+
+  <footer class="project-single-footer">
+    <a href="{{ "/projects/" | relURL }}">← Back to all projects</a>
+  </footer>
+</article>
+{{- end }}

@@ -1,59 +1,85 @@
 ---
 title: "Projects"
-description: "Selected research and personal projects."
+description: "Selected research, course, and personal projects. Click a title to read the full write-up. For peer-reviewed work, see [publications](/publications/)."
 hidemeta: true
 ---
 
 {{< project
-  title="Real-Time Non-Verbal Interaction with Reachy Mini"
-  venue="Rosie Lab · 2026"
-  image="https://placehold.co/400x300/0a5582/fff?text=Reachy+Mini"
-  links="project=https://quangminhdinh.github.io/nonverbal-reachy/"
+  title="Dynamic Radiant Foam"
+  venue="CMPT 469 · Rendering & Visual Computing for AI · Spring 2025"
+  image="/images/projects/dynamic-radiant-foam.jpg"
+  page="/projects/dynamic-radiant-foam/"
+  links="code=https://github.com/quangminhdinh/CMPT469-Final;radiant foam=https://radfoam.github.io/"
 >}}
-A real-time human-to-robot interaction pipeline for Reachy Mini, combining head-and-arm mirroring, hand gesture recognition, facial emotion detection, and a locally hosted VLM that selects from 81 pre-recorded expressions via a priority scheduler. In our pilot, only 38% of participants could distinguish autonomous behaviour from human teleoperation.
+An ambitious attempt to extend **Radiant Foam** — a real-time Voronoi ray-tracing radiance field — from static to *dynamic* scenes. I modelled per-point temporal density, polynomial motion, and 4D spherical harmonics, and tamed training instability with frame-time noise and an SSIM loss (≈30× faster convergence). It didn't fully succeed, but the failure modes were the lesson.
 {{< /project >}}
 
 {{< project
-  title="TrafficVLM"
-  venue="AI City Challenge @ CVPR 2024 · 3rd place"
-  image="https://placehold.co/400x300/1279aa/fff?text=TrafficVLM"
-  links="paper=https://openaccess.thecvf.com/content/CVPR2024W/AICity/html/Dinh_TrafficVLM_A_Controllable_Visual_Language_Model_for_Traffic_Video_Captioning_CVPRW_2024_paper.html;code=https://github.com/quangminhdinh/TrafficVLM"
+  title="Text-Conditioned IMLE"
+  venue="APEX Lab · SFU · Summer 2025"
+  image="/images/projects/text-conditioned-imle.jpg"
+  page="/projects/text-conditioned-imle/"
+  links="code=https://github.com/quangminhdinh/AdaIMLE;W&B=https://wandb.ai/quangminhdinh/AdaptiveIMLE?nw=nwuserquangminhdinh"
 >}}
-A controllable visual language model for dense, fine-grained captioning of traffic video events. Two Vid2Seq-based visual encoders model events at different levels of analysis, and a T5-Base decoder generates long descriptions for vehicle and pedestrian across traffic phases. Trained with a multi-task fine-tuning paradigm to align video and text features across phases.
+Extending Adaptive IMLE to the **text-conditional** setting. Benchmarked conditioning architectures (residual injection, conditional StyleGAN, embedding concatenation) for text-to-image generation, and replaced MDCI nearest-neighbour search with **FAISS** + fused distance computation. Traced conditioning failures to latent-space mismatches between condition and output.
 {{< /project >}}
 
 {{< project
-  title="AdaIMLE (Text-Conditional)"
-  venue="APEX Lab · Summer 2025"
-  image="https://placehold.co/400x300/3e9dc8/fff?text=AdaIMLE"
-  links="code=https://github.com/quangminhdinh/AdaIMLE"
+  title="Symmetric Network with Dual-vehicle Attributes Augmentation"
+  venue="7th AI City Challenge @ CVPR 2023 · Track 2 · 7th place"
+  image="/images/projects/symmetric-vehicle-retrieval.jpg"
+  page="/projects/symmetric-vehicle-retrieval/"
+  links="code=https://github.com/quangminhdinh/Dual-Vehicle-Aug-Symmetric-Net"
 >}}
-Extended Implicit Maximum Likelihood Estimation to the text-conditional setting. Benchmarked four conditioning architectures (FiLM-style affine modulation, per-block residual injection, StyleGAN-based conditioning, and mapping-network concatenation) across Oxford 102 Flowers and CelebA Faces Captioned. Traced failures to latent-space mismatches between condition and output.
+My first large-scale solo research project: natural-language tracked-vehicle retrieval. A symmetric cross-modal network (RoBERTa + EfficientNet, InfoNCE) with a **dual-vehicle attribute-augmentation** system that mines a second vehicle in each query as free supervision. 35.44% MRR, 7th place — and an early, hard lesson in the validation/test domain gap.
 {{< /project >}}
 
 {{< project
-  title="Extended Loss"
-  venue="Interspeech 2025"
-  image="https://placehold.co/400x300/0a74ad/fff?text=Extended+Loss"
-  links="project=https://quangminhdinh.github.io/ExtendedLoss/;paper=https://www.isca-archive.org/interspeech_2025/dinh25_interspeech.html"
+  title="GeoMon"
+  venue="CMPT 362 · Mobile Application Development · Fall 2025"
+  image="/images/projects/geomon.jpg"
+  page="/projects/geomon/"
+  links="code=https://github.com/quangminhdinh/geomon_cmpt362;demo=https://quangminhdinh.github.io/geomon/"
 >}}
-A model-agnostic method that incorporates adjacent audio chunks into the loss calculation for real-time speech enhancement when frames are as short as 200ms. Yields 0.1–0.57 improvement in double-talk AECMOS echo and 5.69–24.18 ERLE gain on the AEC Challenge 2023 aligned blind set, with no inference-time cost.
+A location-based, Pokémon-style Android RPG: explore real-world maps, battle and capture GPS-spawned monsters, duel other players in real time, and chat with your monster via the Gemini API. I built the map, location service, spawning, capture, and the Firebase real-time multiplayer backend.
+{{< /project >}}
+
+{{< project
+  title="PedroVerse"
+  venue="CMPT 461 · Computational Photography · SFU"
+  image="/images/projects/pedroverse.jpg"
+  page="/projects/pedroverse/"
+  links="code=https://github.com/quangminhdinh/pedroverse"
+>}}
+A **Blender add-on** that stylizes 3D assets into non-photorealistic looks by editing only their albedo and object-space normal maps — no engine-specific shaders. Combines lightweight style transfer, palette recoloring, and four geometric-abstraction filters in a modular UV-space pipeline that travels across engines and VR.
 {{< /project >}}
 
 {{< project
   title="MirrorBrain"
-  venue="Personal · 2023–2024"
-  image="https://placehold.co/400x300/8fd3ee/333?text=MirrorBrain"
-  links="code=https://github.com/quangminhdinh"
+  venue="KaleidoAI · New Venture Challenge (Ethos Fund) · 2023–2024"
+  image="/images/projects/mirrorbrain.jpg"
+  page="/projects/mirrorbrain/"
+  links="code=https://github.com/KaleidoAI/mirror-brain-v0"
 >}}
-A Zettelkasten-style note-taking app augmented with LLMs for auto-generating text connections and contexts. Led a team of 5 across architecture, database, REST API, and Kanban delivery. Built with Next.js, TypeScript, Tailwind, BlockNote, FastAPI, Qdrant, and Convex. Reverse-engineered BlockNote's side-menu UI; replaced Qdrant vector search with Okapi BM25 for faster text retrieval.
+An LLM-augmented, Zettelkasten-style note-taking app, and the flagship of my startup attempt through the Ethos Fund New Venture Challenge. Led a team of 5 across Next.js/TypeScript, FastAPI, Convex, and Qdrant. A failed venture — *execution, not idea* — and the post-mortem that taught me the most.
 {{< /project >}}
 
 {{< project
-  title="Mental Sprout"
-  venue="Personal · 2022"
-  image="https://placehold.co/400x300/7bbf6a/fff?text=Mental+Sprout"
-  links=""
+  title="Virtual Ring Try-On"
+  venue="YITEC · Machine Learning Engineer · 2020–2021"
+  image="/images/projects/virtual-ring-tryon.jpg"
+  page="/projects/virtual-ring-tryon/"
+  links="demo=https://www.youtube.com/watch?v=fMoTa7qCFho;code=https://github.com/quangminhdinh/Virtual-Ring-TryOn"
 >}}
-A platform connecting parents of autistic children with specialized professionals. Directed a team of 10 across architecture, Figma prototyping, and delivery. Built a web landing page + ERP dashboard in React, an Android app in React Native, and a Node.js/Express/PostgreSQL backend.
+Vietnam's first real-time hand-tracking AR ring try-on mobile app, built with MediaPipe, Unity AR Foundation, and ARCore. Derived the placement/lighting maths and pushed the frame rate from 5 to 30 FPS. On par with or better than FPT and Viettel at the time — and the foundation for one of YITEC's later core businesses.
+{{< /project >}}
+
+{{< project
+  title="Face Emotion Detection with Angular Encoding"
+  venue="Research exploration · 2022"
+  image="/images/projects/mediapipe-face-emotion.jpg"
+  page="/projects/mediapipe-face-emotion/"
+  links="code=https://github.com/quangminhdinh/mediapipe-face-emotion-detection"
+>}}
+One of my earliest research experiments: classifying facial emotion from the **angular geometry** of MediaPipe landmarks rather than raw pixels, with KNN/SVM/AutoML classifiers on FER2013. A reproduction study whose accuracy gap traced back to a single skipped super-resolution step.
 {{< /project >}}

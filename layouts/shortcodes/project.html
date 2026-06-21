@@ -2,14 +2,22 @@
 {{- $venue := .Get "venue" -}}
 {{- $image := .Get "image" -}}
 {{- $linksStr := .Get "links" -}}
+{{- $page := .Get "page" -}}
+{{- /* External page links (e.g. publications) open in a new tab; internal project pages stay in-tab */ -}}
+{{- $newtab := and $page (hasPrefix $page "http") -}}
 <article class="project-card">
   {{- if $image }}
   <div class="project-thumb">
+    {{- if $page }}<a href="{{ $page }}"{{ if $newtab }} target="_blank" rel="noopener"{{ end }}>{{ end }}
     <img src="{{ $image }}" alt="{{ $title }}" loading="lazy">
+    {{- if $page }}</a>{{ end }}
   </div>
   {{- end }}
   <div class="project-body">
-    <h3 class="project-title">{{ $title }}</h3>
+    <h3 class="project-title">
+      {{- if $page }}<a href="{{ $page }}" class="project-title-link"{{ if $newtab }} target="_blank" rel="noopener"{{ end }}>{{ $title }}</a>
+      {{- else }}{{ $title }}{{ end -}}
+    </h3>
     {{- with $venue }}<div class="project-venue">{{ . }}</div>{{- end }}
     <div class="project-desc">{{ .Inner | markdownify }}</div>
     {{- if $linksStr }}
