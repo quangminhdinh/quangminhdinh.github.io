@@ -1,45 +1,56 @@
 ---
 title: "Publications"
-description: "Peer-reviewed papers and poster talks. Equal-contribution authors are marked with *."
+description: "Peer-reviewed papers, preprints, and poster talks. Equal-contribution authors are marked with *."
 hidemeta: true
 ---
 
 ## Preprints
 
-- **Non-Verbal Human–Robot Interaction with Reachy Mini: A Real-Time Multimodal System and Turing Test Evaluation**  
-  **Quang Minh Dinh**, Stella Lin, Gemmin Sugiura, Bita Azari, Yasaman Etesam, Chuxuan Zhang, Angelica Lim  
-  Preprint, 2026.  
-  [[Project]](https://quangminhdinh.github.io/nonverbal-reachy/)
+{{< project
+  title="Non-Verbal Human–Robot Interaction with Reachy Mini: A Real-Time Multimodal System and Turing Test Evaluation"
+  venue="Preprint · 2026"
+  image="/images/pub-reachy.jpg"
+  links="Paper=https://quangminhdinh.github.io/nonverbal-reachy/static/nonverbal_reachy.pdf;Project=https://quangminhdinh.github.io/nonverbal-reachy/;Autonomous Code=https://github.com/S-Gemmin/nonverbal-reachy;Teleop Code=https://github.com/stella05925/reachy_teleop;Video=https://www.youtube.com/watch?v=ICc36q10hZw;Poster=https://canva.link/n3kgd0eqzafqzjw"
+>}}
+**Quang Minh Dinh\***, Stella Lin\*, Gemmin Sugiura\*, Bita Azari, Yasaman Etesam, Chuxuan Zhang, Angelica Lim
+{{< /project >}}
 
-## 2026
+## Publications
 
-- **BERSting at the screams: A benchmark for distanced, emotional and shouted speech recognition**  
-  Paige Tuttösí, Mantaj Dhillon, Luna Sang, Shane Eastwood, Poorvi Bhatia, **Quang Minh Dinh\***, Avni Kapoor, Yewon Jin, Angelica Lim  
-  *Computer Speech and Language*, vol. 95, p. 101815, 2026.  
-  [[DOI]](https://doi.org/10.1016/j.csl.2025.101815)
+{{< project
+  title="BERSting at the screams: A benchmark for distanced, emotional and shouted speech recognition"
+  venue="Computer Speech and Language, vol. 95 · 2026"
+  image="/images/pub-berst.jpg"
+  links="Paper=https://doi.org/10.1016/j.csl.2025.101815;Project=https://www.rosielab.ca/datasets/berst;Dataset=https://huggingface.co/datasets/Rosie-Lab/BERSt"
+>}}
+Paige Tuttösí, Mantaj Dhillon, Luna Sang, Shane Eastwood, Poorvi Bhatia, **Quang Minh Dinh**, Avni Kapoor, Yewon Jin, Angelica Lim
+{{< /project >}}
 
-## 2025
+{{< project
+  title="Extended Loss: Incorporating Long Context into Training Models when using Short Audio Frames"
+  venue="Interspeech 2025, pp. 778–782"
+  image="/images/pub-ext.jpg"
+  links="Paper=https://doi.org/10.21437/Interspeech.2025-2177;Project=https://quangminhdinh.github.io/ExtendedLoss/"
+>}}
+**Quang Minh Dinh**, Hoda Rezaee Kaviani, Mehrdad Hosseinzadeh, Yuanhao Yu
+{{< /project >}}
 
-- **Extended Loss: Incorporating Long Context into Training Models when using Short Audio Frames**  
-  **Quang Minh Dinh\***, Hoda Rezaee Kaviani, Mehrdad Hosseinzadeh, Yuanhao Yu  
-  *Interspeech 2025*, pp. 778–782.  
-  [[Page]](https://quangminhdinh.github.io/ExtendedLoss/) · [[DOI]](https://doi.org/10.21437/Interspeech.2025-2177)
-
-## 2024
-
-- **TrafficVLM: A Controllable Visual Language Model for Traffic Video Captioning**  
-  **Quang Minh Dinh\***, Minh Khoi Ho, Anh Quan Dang, Hung Phong Tran  
-  *IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) Workshops*, pp. 7134–7143, 2024.  
-  3rd place in Track 2 of the AI City Challenge 2024.  
-  [[Code]](https://github.com/quangminhdinh/TrafficVLM)
+{{< project
+  title="TrafficVLM: A Controllable Visual Language Model for Traffic Video Captioning"
+  venue="CVPR Workshops · AI City Challenge 2024 · 3rd place, Track 2"
+  image="/images/pub-trafficvlm.jpg"
+  links="Paper=https://openaccess.thecvf.com/content/CVPR2024W/AICity/html/Dinh_TrafficVLM_A_Controllable_Visual_Language_Model_for_Traffic_Video_Captioning_CVPRW_2024_paper.html;Code=https://github.com/quangminhdinh/TrafficVLM;Slide=https://drive.google.com/file/d/1rQ6jfmmhsOCc5e5RPXTVc3cW2JSVEhYB/view?usp=sharing;Poster=https://drive.google.com/file/d/1Tk3keK4GY6iMjK9F38CG2w37hkQRwizC/view?usp=sharing"
+>}}
+**Quang Minh Dinh**, Minh Khoi Ho, Anh Quan Dang, Hung Phong Tran
+{{< /project >}}
 
 ---
 
 ## Poster Talks
 
 - **Real-Time Non-Verbal Human–Robot Interaction with Reachy Mini**
-  - *IEEE Vancouver Section Annual General Meeting (AGM) 2026*, Mar 28, 2026.
-  - *SFU Undergraduate Research Symposium (UGRS) 2026*, Apr 1, 2026.
+  - **Mar 28, 2026:** *IEEE Vancouver Section Annual General Meeting (AGM) 2026*
+  - **Apr 1, 2026:** *SFU Undergraduate Research Symposium (UGRS) 2026*
 
 ## Services
 

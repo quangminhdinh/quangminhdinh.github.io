@@ -14,13 +14,14 @@
     <div class="project-desc">{{ .Inner | markdownify }}</div>
     {{- if $linksStr }}
     <div class="project-links">
-      {{- range $i, $entry := split $linksStr ";" }}
-        {{- $kv := split $entry "=" -}}
-        {{- if eq (len $kv) 2 -}}
-          {{- $label := index $kv 0 -}}
-          {{- $url := index $kv 1 -}}
+      {{- range $entry := split $linksStr ";" }}
+        {{- $entry = trim $entry " " -}}
+        {{- $parts := split $entry "=" -}}
+        {{- if ge (len $parts) 2 -}}
+          {{- $label := index $parts 0 -}}
+          {{- $url := delimit (after 1 $parts) "=" -}}
           {{- if $url -}}
-          <a href="{{ $url }}" target="_blank" rel="noopener">{{ $label }} ↗</a>
+          <a href="{{ $url }}" target="_blank" rel="noopener">[{{ $label }}]</a>
           {{- end -}}
         {{- end -}}
       {{- end }}

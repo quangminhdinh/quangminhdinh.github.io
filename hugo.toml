@@ -60,7 +60,7 @@ pygmentsUseClasses = true
     Content = """
 I'm an incoming PhD student interested in **world models** and **multi-agent social interaction**: how agents can maintain a shared understanding of their environment so that planning, coordination, and social behaviour feel seamless and lifelike rather than scripted.
 
-I completed my B.Sc. in Computing Science with Distinction at **Simon Fraser University**, where I work with [Angelica Lim](https://www.rosielab.ca/) at Rosie Lab on real-time non-verbal human–robot interaction, and previously with [Ke Li](https://www.sfu.ca/~keli/) at APEX Lab on text-conditional generative models. Before SFU, I interned at **Huawei** on real-time acoustic echo cancellation, work that became my first-author paper at Interspeech 2025.
+I completed my B.Sc. in Computing Science with Distinction at **Simon Fraser University**, where I work with [Angelica Lim](https://angelicalim.com/) at [Rosie Lab](https://www.rosielab.ca/) on real-time non-verbal human–robot interaction, and previously with [Ke Li](https://www.sfu.ca/~keli/) at [APEX Lab](https://sfuapex.ca/) on text-conditional generative models. Before SFU, I interned at **Huawei** on real-time acoustic echo cancellation, work that became my first-author paper at Interspeech 2025.
 
 Outside of research I keep a [digital garden](/garden/) of loose notes. You can also wander through it as an interactive [graph](/reading/).
 """

@@ -130,12 +130,11 @@
   font-size: 0.9rem;
 }
 .project-links a {
-  margin-right: 0.9rem;
-  color: var(--site-accent);
+  margin-right: 0.7rem;
+  color: var(--primary);
   text-decoration: none;
-  border-bottom: 1px dotted var(--site-accent);
 }
-.project-links a:hover { opacity: 0.75; }
+.project-links a:hover { color: var(--primary); }
 
 @media (max-width: 640px) {
   .project-card { grid-template-columns: 1fr; }
