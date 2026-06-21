@@ -21,7 +21,7 @@ A location-based, Pokémon-style Android RPG: explore real-world maps, battle an
   page="/projects/text-conditioned-imle/"
   links="code=https://github.com/quangminhdinh/AdaIMLE;W&B=https://wandb.ai/quangminhdinh/AdaptiveIMLE?nw=nwuserquangminhdinh"
 >}}
-Extending Adaptive IMLE to the **text-conditional** setting. Benchmarked conditioning architectures (residual injection, conditional StyleGAN, embedding concatenation) for text-to-image generation, and replaced MDCI nearest-neighbour search with **FAISS** + fused distance computation. Traced conditioning failures to latent-space mismatches between condition and output.
+Extending Adaptive IMLE to **text-to-image** generation. Across 100+ runs on Flowers, CelebA, and ImageNet, I benchmarked conditioning architectures (FiLM, conditional StyleGAN, concatenation), CLIP/L2 losses, and text representations, and made the IMLE matching cheap with **FAISS** + fused distances. The recurring obstacle was diversity collapse under conditioning; the strongest fix was initialising from a strong unconditional prior.
 {{< /project >}}
 
 {{< project
