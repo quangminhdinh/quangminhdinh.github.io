@@ -9,6 +9,8 @@ hugo_server.err.log
 
 # Raw source docs (kept locally only)
 raw/
+scripts/
+.claude/
 
 # OS
 .DS_Store

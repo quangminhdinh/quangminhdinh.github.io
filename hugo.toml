@@ -54,19 +54,21 @@ pygmentsUseClasses = true
   hideSummary = false
 
   [params.homeInfoParams]
-    Title = "Hi, I'm Quang Minh 👋"
+    Title = "Hi, I'm Minh 👋"
+    imageUrl = "images/profile.jpg"
+    imageTitle = "Quang Minh Dinh"
     Content = """
-I'm an incoming PhD student interested in **world models** and **multi-agent social interaction** — how agents can maintain a shared understanding of their environment so that planning, coordination, and social behaviour feel seamless and lifelike rather than scripted.
+I'm an incoming PhD student interested in **world models** and **multi-agent social interaction**: how agents can maintain a shared understanding of their environment so that planning, coordination, and social behaviour feel seamless and lifelike rather than scripted.
 
-I'm currently finishing my B.Sc. in Computing Science at **Simon Fraser University**, where I work with [Angelica Lim](https://www.rosielab.ca/) at Rosie Lab on real-time non-verbal human–robot interaction, and previously with [Ke Li](https://www.sfu.ca/~keli/) at APEX Lab on text-conditional generative models. Before SFU, I interned at **Huawei** on real-time acoustic echo cancellation — that work became my first-author paper at Interspeech 2025.
+I completed my B.Sc. in Computing Science with Distinction at **Simon Fraser University**, where I work with [Angelica Lim](https://www.rosielab.ca/) at Rosie Lab on real-time non-verbal human–robot interaction, and previously with [Ke Li](https://www.sfu.ca/~keli/) at APEX Lab on text-conditional generative models. Before SFU, I interned at **Huawei** on real-time acoustic echo cancellation, work that became my first-author paper at Interspeech 2025.
 
-Outside of research I keep a [digital garden](/garden/) of loose notes — you can also wander through it as an interactive [graph](/reading/).
+Outside of research I keep a [digital garden](/garden/) of loose notes. You can also wander through it as an interactive [graph](/reading/).
 """
 
   [[params.socialIcons]]
     name = "email"
     title = "Email"
-    url = "mailto:minh101202@gmail.com"
+    url = "mailto:qmd@sfu.ca"
   [[params.socialIcons]]
     name = "github"
     title = "GitHub"
@@ -78,7 +80,7 @@ Outside of research I keep a [digital garden](/garden/) of loose notes — you c
   [[params.socialIcons]]
     name = "googlescholar"
     title = "Google Scholar"
-    url = "https://scholar.google.com/citations?user=quangminhdinh"
+    url = "https://scholar.google.com/citations?user=-OE2rAYAAAAJ"
   [[params.socialIcons]]
     name = "cv"
     title = "CV"
@@ -88,6 +90,8 @@ Outside of research I keep a [digital garden](/garden/) of loose notes — you c
     disableHLJS = true
     disableFingerprinting = false
     favicon = "/favicon.ico"
+    theme_color = "#1d1e20"
+    msapplication_TileColor = "#ffffff"
 
   [params.fuseOpts]
     isCaseSensitive = false
@@ -121,6 +125,12 @@ Outside of research I keep a [digital garden](/garden/) of loose notes — you c
   name = "graph"
   url = "/reading/"
   weight = 40
+
+[[menu.main]]
+  identifier = "cv"
+  name = "cv"
+  url = "/cv.pdf"
+  weight = 45
 
 [[menu.main]]
   identifier = "search"

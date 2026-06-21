@@ -8,7 +8,7 @@ tags: ["personal", "research-agenda"]
 links: ["world-models", "conditioning-is-an-assumption"]
 ---
 
-I didn't come into research wanting to work on world models. I came into research because, at Huawei, a problem I knew nothing about (acoustic echo cancellation on sub-200ms frames) turned out to have a beautiful fix borrowed from classical signal processing — and nobody had tried it. That was enough to convince me research was a thing I could do, and wanted to keep doing.
+I didn't come into research wanting to work on world models. I came into research because, at Huawei, a problem I knew nothing about (acoustic echo cancellation on sub-200ms frames) turned out to have a beautiful fix borrowed from classical signal processing, and nobody had tried it. That was enough to convince me research was a thing I could do, and wanted to keep doing.
 
 Then the AI City Challenge happened, and I noticed our caption model couldn't keep two agents' descriptions from conflicting. That pushed me toward {{< wl "world-models" >}}.
 

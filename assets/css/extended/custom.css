@@ -1,6 +1,6 @@
 /* =========================================================
    Custom styles for Quang Minh Dinh's site
-   Extends PaperMod — loaded automatically via assets/css/extended/
+   Extends PaperMod, loaded automatically via assets/css/extended/
    ========================================================= */
 
 :root {
@@ -13,6 +13,67 @@
 .dark {
   --site-accent: #58b6dd;
   --site-accent-soft: #8fd3ee;
+}
+
+
+/* ---------- Home: profile intro ---------- */
+.home-info-flex {
+  display: flex;
+  gap: 2.25rem;
+  align-items: flex-start;
+}
+.home-info-aside {
+  flex: 0 0 auto;
+  width: 220px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.home-info-img {
+  width: 220px;
+  height: 275px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.14);
+}
+.home-info-social {
+  width: 100%;
+  text-align: center;
+}
+/* even spacing + flush so the row sits centred under the photo */
+.home-info-social .social-icons a,
+.home-info-social .social-icons a:first-of-type {
+  padding: 8px;
+}
+.home-info-social .social-icons a svg {
+  width: 24px;
+  height: 24px;
+}
+.home-info-text {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.home-info-text .entry-header h1 {
+  margin-top: 0;
+}
+.home-info-text .entry-content p:first-child {
+  margin-top: 0;
+}
+
+@media (max-width: 700px) {
+  .home-info-flex {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .home-info-aside {
+    width: auto;
+  }
+  .home-info-img {
+    width: 200px;
+    height: 250px;
+  }
 }
 
 /* ---------- Home: news list ---------- */

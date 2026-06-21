@@ -4,6 +4,13 @@ description: "Peer-reviewed papers and poster talks. Equal-contribution authors 
 hidemeta: true
 ---
 
+## Preprints
+
+- **Non-Verbal Human–Robot Interaction with Reachy Mini: A Real-Time Multimodal System and Turing Test Evaluation**  
+  **Quang Minh Dinh**, Stella Lin, Gemmin Sugiura, Bita Azari, Yasaman Etesam, Chuxuan Zhang, Angelica Lim  
+  Preprint, 2026.  
+  [[Project]](https://quangminhdinh.github.io/nonverbal-reachy/)
+
 ## 2026
 
 - **BERSting at the screams: A benchmark for distanced, emotional and shouted speech recognition**  
@@ -31,10 +38,11 @@ hidemeta: true
 ## Poster Talks
 
 - **Real-Time Non-Verbal Human–Robot Interaction with Reachy Mini**
-  - *IEEE Vancouver Section Annual General Meeting (AGM) 2026* — Mar 28, 2026.
-  - *SFU Undergraduate Research Symposium (UGRS) 2026* — Apr 1, 2026.
+  - *IEEE Vancouver Section Annual General Meeting (AGM) 2026*, Mar 28, 2026.
+  - *SFU Undergraduate Research Symposium (UGRS) 2026*, Apr 1, 2026.
 
 ## Services
 
+- Volunteer, **AI/CRV 2026**.
 - Reviewer, **ICCVW AI City Challenge 2025**.
 - Reviewer, **CVPRW AI City Challenge 2024**.

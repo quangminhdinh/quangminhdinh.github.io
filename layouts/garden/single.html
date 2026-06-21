@@ -63,7 +63,7 @@
       <h3>Linked notes</h3>
       <ul>
         {{- range $forward }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Description }} — <span class="note-snippet">{{ . }}</span>{{ end }}</li>
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Description }} · <span class="note-snippet">{{ . }}</span>{{ end }}</li>
         {{- end }}
       </ul>
     </section>
@@ -73,7 +73,7 @@
       <h3>Backlinks</h3>
       <ul>
         {{- range $backlinks }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Description }} — <span class="note-snippet">{{ . }}</span>{{ end }}</li>
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Description }} · <span class="note-snippet">{{ . }}</span>{{ end }}</li>
         {{- end }}
       </ul>
     </section>

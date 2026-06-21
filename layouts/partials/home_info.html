@@ -1,0 +1,33 @@
+{{- with site.Params.homeInfoParams }}
+{{- $img := "" }}
+{{- if .imageUrl }}{{ $img = resources.Get .imageUrl }}{{ end }}
+{{- if $img }}{{ $img = $img.Fill "440x550 Smart" }}{{ end }}
+<article class="first-entry home-info">
+    <div class="home-info-flex">
+        {{- if $img }}
+        <aside class="home-info-aside">
+            <img class="home-info-img" src="{{ $img.RelPermalink }}" width="220" height="275"
+                alt="{{ .imageTitle | default "Profile photo" }}" title="{{ .imageTitle }}"
+                loading="eager" draggable="false" />
+            <div class="home-info-social">
+                {{- partial "social_icons.html" (dict "align" "center") }}
+            </div>
+        </aside>
+        {{- end }}
+        <div class="home-info-text">
+            <header class="entry-header">
+                <h1>{{ .Title | markdownify }}</h1>
+            </header>
+            <div class="entry-content md-content">
+                {{ $opts := dict "display" "block" }}
+                {{ .Content | $.Page.RenderString $opts }}
+            </div>
+            {{- if not $img }}
+            <footer class="entry-footer">
+                {{- partial "social_icons.html" (dict "align" "") }}
+            </footer>
+            {{- end }}
+        </div>
+    </div>
+</article>
+{{- end -}}

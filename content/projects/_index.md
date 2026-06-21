@@ -28,7 +28,7 @@ A controllable visual language model for dense, fine-grained captioning of traff
   image="https://placehold.co/400x300/3e9dc8/fff?text=AdaIMLE"
   links="code=https://github.com/quangminhdinh/AdaIMLE"
 >}}
-Extended Implicit Maximum Likelihood Estimation to the text-conditional setting. Benchmarked four conditioning architectures — FiLM-style affine modulation, per-block residual injection, StyleGAN-based conditioning, and mapping-network concatenation — across Oxford 102 Flowers and CelebA Faces Captioned. Traced failures to latent-space mismatches between condition and output.
+Extended Implicit Maximum Likelihood Estimation to the text-conditional setting. Benchmarked four conditioning architectures (FiLM-style affine modulation, per-block residual injection, StyleGAN-based conditioning, and mapping-network concatenation) across Oxford 102 Flowers and CelebA Faces Captioned. Traced failures to latent-space mismatches between condition and output.
 {{< /project >}}
 
 {{< project
@@ -37,7 +37,7 @@ Extended Implicit Maximum Likelihood Estimation to the text-conditional setting.
   image="https://placehold.co/400x300/0a74ad/fff?text=Extended+Loss"
   links="project=https://quangminhdinh.github.io/ExtendedLoss/;paper=https://www.isca-archive.org/interspeech_2025/dinh25_interspeech.html"
 >}}
-A model-agnostic method that incorporates adjacent audio chunks into the loss calculation for real-time speech enhancement when frames are as short as 200ms. Yields 0.1–0.57 improvement in double-talk AECMOS echo and 5.69–24.18 ERLE gain on the AEC Challenge 2023 aligned blind set — with no inference-time cost.
+A model-agnostic method that incorporates adjacent audio chunks into the loss calculation for real-time speech enhancement when frames are as short as 200ms. Yields 0.1–0.57 improvement in double-talk AECMOS echo and 5.69–24.18 ERLE gain on the AEC Challenge 2023 aligned blind set, with no inference-time cost.
 {{< /project >}}
 
 {{< project
