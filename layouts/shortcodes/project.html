@@ -3,13 +3,14 @@
 {{- $image := .Get "image" -}}
 {{- $linksStr := .Get "links" -}}
 {{- $page := .Get "page" -}}
+{{- $fit := .Get "fit" -}}
 {{- /* External page links (e.g. publications) open in a new tab; internal project pages stay in-tab */ -}}
 {{- $newtab := and $page (hasPrefix $page "http") -}}
 <article class="project-card">
   {{- if $image }}
   <div class="project-thumb">
     {{- if $page }}<a href="{{ $page }}"{{ if $newtab }} target="_blank" rel="noopener"{{ end }}>{{ end }}
-    <img src="{{ $image }}" alt="{{ $title }}" loading="lazy">
+    <img src="{{ $image }}" alt="{{ $title }}" loading="lazy"{{ if $fit }} style="object-fit: {{ $fit }}; background: #fff;"{{ end }}>
     {{- if $page }}</a>{{ end }}
   </div>
   {{- end }}

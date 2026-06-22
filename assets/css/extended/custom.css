@@ -9,10 +9,13 @@
   --note-seedling: #7bbf6a;
   --note-budding:  #d8a52b;
   --note-evergreen:#4c6ef5;
+  /* Graph neighbourhood highlight: a cooler teal than the site blue */
+  --graph-hot: #14b8a6;
 }
 .dark {
   --site-accent: #58b6dd;
   --site-accent-soft: #8fd3ee;
+  --graph-hot: #2dd4bf;
 }
 
 
@@ -195,14 +198,18 @@
    present (so a reader knows it's a link without relying on colour) and a
    full-strength underline that grows in from the left on hover. Two stacked
    gradients: bottom = static cue, top = animated. Applies to prose paragraphs
-   and list items in every content area (home, projects, publications, garden).
-   Garden wikilinks keep their own dashed style, so they're excluded. */
+   and list items in every content area (home, projects, publications, garden),
+   plus the garden note titles, backlink lists, and inline wikilinks so the
+   whole garden shares the project pages' link treatment. */
 .post-content p a:not(.wikilink),
 .post-content li a:not(.wikilink),
 .md-content p a:not(.wikilink),
 .md-content li a:not(.wikilink),
 .project-single-venue a,
-.project-single-footer a {
+.project-single-footer a,
+.garden-entry-title,
+.garden-links a,
+.wikilink {
   color: inherit;
   text-decoration: none;
   background-image:
@@ -220,7 +227,10 @@
 .md-content p a:not(.wikilink):hover,
 .md-content li a:not(.wikilink):hover,
 .project-single-venue a:hover,
-.project-single-footer a:hover {
+.project-single-footer a:hover,
+.garden-entry-title:hover,
+.garden-links a:hover,
+.wikilink:hover {
   background-size: 100% 1.5px, 100% 1px;
 }
 
@@ -410,11 +420,7 @@
 }
 .garden-entry-title {
   font-size: 1.05rem;
-  text-decoration: none;
-  border-bottom: 1px dotted var(--site-accent);
-  color: var(--primary);
 }
-.garden-entry-title:hover { color: var(--site-accent); }
 .garden-entry-desc {
   margin: 0.35rem 0 0.4rem 0;
   color: var(--secondary);
@@ -474,15 +480,12 @@
 .note-tags a:hover { color: var(--site-accent); }
 .note-dates time { font-variant-numeric: tabular-nums; }
 
-.wikilink {
-  color: var(--site-accent);
-  text-decoration: none;
-  border-bottom: 1px dashed var(--site-accent);
-}
-.wikilink:hover { opacity: 0.75; }
+/* .wikilink shares the animated underline defined in the body-link block above */
 .wikilink-missing {
   color: #c0392b;
-  border-bottom: 1px dashed #c0392b;
+  background-image:
+    linear-gradient(currentColor, currentColor),
+    linear-gradient(#c0392b, #c0392b);
   cursor: help;
 }
 
@@ -510,12 +513,6 @@
   margin: 0.35rem 0;
   line-height: 1.5;
 }
-.garden-links a {
-  color: var(--primary);
-  text-decoration: none;
-  border-bottom: 1px dotted var(--site-accent);
-}
-.garden-links a:hover { color: var(--site-accent); }
 .note-snippet {
   color: var(--secondary);
   font-size: 0.88rem;
@@ -596,7 +593,7 @@
 }
 .graph-edge.dim { stroke-opacity: 0.06; }
 .graph-edge.hot {
-  stroke: var(--site-accent);
+  stroke: var(--graph-hot);
   stroke-opacity: 1;
   stroke-width: 1.6;
 }
@@ -608,11 +605,11 @@
   transition: opacity 0.2s, stroke 0.2s, stroke-width 0.15s;
 }
 .graph-node:hover circle {
-  stroke: var(--site-accent);
+  stroke: var(--graph-hot);
   stroke-width: 2.5;
 }
 .graph-node.focus circle {
-  stroke: var(--site-accent);
+  stroke: var(--graph-hot);
   stroke-width: 2.5;
 }
 .graph-node.dim { opacity: 0.15; }

@@ -11,7 +11,7 @@ At **[YITEC](https://yitec.net/)**, as a Machine Learning Engineer (Oct 2020 –
 The project was a **major success, matching or beating the solutions of FPT and Viettel** at the time, and laid the foundation for one of YITEC's later core businesses.
 
 <figure>
-  <img src="ring.jpg" alt="AR virtual ring try-on">
+  <img src="ring.png" alt="AR virtual ring try-on" style="display: block; margin: 0 auto; max-width: 320px;">
   <figcaption>The virtual ring rendered onto a tracked hand in real time.</figcaption>
 </figure>
 

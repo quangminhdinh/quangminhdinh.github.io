@@ -59,9 +59,9 @@ An LLM-augmented, Zettelkasten-style note-taking app, and the flagship of my sta
   venue="7th AI City Challenge @ CVPR 2023 · Track 2 · 7th place"
   image="/images/projects/symmetric-vehicle-retrieval.jpg"
   page="/projects/symmetric-vehicle-retrieval/"
-  links="code=https://github.com/quangminhdinh/Dual-Vehicle-Aug-Symmetric-Net"
+  links="Code=https://github.com/quangminhdinh/Dual-Vehicle-Aug-Symmetric-Net;Report=/projects/symmetric-vehicle-retrieval/paper.pdf"
 >}}
-My first large-scale solo research project: natural-language tracked-vehicle retrieval. A symmetric cross-modal network (RoBERTa + EfficientNet, InfoNCE) with a **dual-vehicle attribute-augmentation** system that mines a second vehicle in each query as free supervision. 35.44% MRR, 7th place, and an early, hard lesson in the validation/test domain gap.
+My first large-scale research project: natural-language tracked-vehicle retrieval. A symmetric cross-modal network (RoBERTa + EfficientNet, InfoNCE) with a **dual-vehicle attribute-augmentation** system that mines a second vehicle in each query as free supervision. 35.44% MRR, 7th place, and an early, hard lesson in the validation/test domain gap.
 {{< /project >}}
 
 {{< project
@@ -77,9 +77,10 @@ One of my earliest research experiments: classifying facial emotion from the **a
 {{< project
   title="Virtual Ring Try-On"
   venue="YITEC · Machine Learning Engineer · 2020–2021"
-  image="/images/projects/virtual-ring-tryon.jpg"
+  image="/images/projects/virtual-ring-tryon.png"
+  fit="contain"
   page="/projects/virtual-ring-tryon/"
-  links="demo=https://www.youtube.com/watch?v=fMoTa7qCFho;code=https://github.com/quangminhdinh/Virtual-Ring-TryOn"
+  links="demo=https://www.youtube.com/watch?v=fMoTa7qCFho;code=https://github.com/quangminhdinh/Virtual-Ring-TryOn;yitec=https://yitec.net/project/ar-ring-try-on/;jlm=https://jlm.yitec.net/"
 >}}
 Vietnam's first real-time hand-tracking AR ring try-on mobile app, built with MediaPipe, Unity AR Foundation, and ARCore. Derived the placement/lighting maths and pushed the frame rate from 5 to 30 FPS. On par with or better than FPT and Viettel at the time, and the foundation for one of YITEC's later core businesses.
 {{< /project >}}
