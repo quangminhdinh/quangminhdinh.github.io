@@ -49,9 +49,9 @@ A **Blender add-on** that stylizes 3D assets into non-photorealistic looks by ed
   venue="KaleidoAI · New Venture Challenge (Ethos Fund) · 2023–2024"
   image="/images/projects/mirrorbrain.jpg"
   page="/projects/mirrorbrain/"
-  links="code=https://github.com/KaleidoAI/mirror-brain-v0"
+  links="code=https://github.com/KaleidoAI/mirror-brain-v0;system design=/projects/mirrorbrain/architecture.jpg;db schema=/projects/mirrorbrain/schema.jpg;ux design=/projects/mirrorbrain/wireframe.jpg;milestones=/projects/mirrorbrain/prototype.jpg"
 >}}
-An LLM-augmented, Zettelkasten-style note-taking app, and the flagship of my startup attempt through the Ethos Fund New Venture Challenge. Led a team of 5 across Next.js/TypeScript, FastAPI, Convex, and Qdrant. A failed venture (*execution, not idea*) and the post-mortem that taught me the most.
+An LLM-augmented, Zettelkasten-style note-taking app, and the flagship of my startup attempt through the Ethos Fund New Venture Challenge. I led a team of 5, building on Next.js/TypeScript, FastAPI, Convex, and Qdrant. A failed venture (*execution, not idea*) and the post-mortem that taught me the most.
 {{< /project >}}
 
 {{< project
