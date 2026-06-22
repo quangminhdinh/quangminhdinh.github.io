@@ -29,7 +29,7 @@ Extending Adaptive IMLE to **text-to-image** generation. Across 100+ runs on Flo
   venue="CMPT 469 · Rendering & Visual Computing for AI · Spring 2025"
   image="/images/projects/dynamic-radiant-foam.jpg"
   page="/projects/dynamic-radiant-foam/"
-  links="code=https://github.com/quangminhdinh/CMPT469-Final;radiant foam=https://radfoam.github.io/"
+  links="code=https://github.com/quangminhdinh/CMPT469-Final;slide=/projects/dynamic-radiant-foam/slides.pdf;report=/projects/dynamic-radiant-foam/report.pdf"
 >}}
 An ambitious attempt to extend **Radiant Foam**, a real-time Voronoi ray-tracing radiance field, from static to *dynamic* scenes. I modelled per-point temporal density, polynomial motion, and 4D spherical harmonics, and tamed training instability with frame-time noise and an SSIM loss (≈30× faster convergence). It didn't fully succeed, but the failure modes were the lesson.
 {{< /project >}}

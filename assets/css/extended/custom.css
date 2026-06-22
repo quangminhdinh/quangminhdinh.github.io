@@ -173,6 +173,23 @@
   background-size: 100% 1.5px;
 }
 
+/* ---------- Navbar menu ----------
+   Keep PaperMod's active state (bold + static 2px underline marks the current
+   page). For every other item, no underline at rest and the same grow-from-left
+   underline the project titles use, shown on hover. The gradient sits on the
+   <span> so it tracks the text width and lines up with the active border. */
+.menu a span:not(.active) {
+  text-decoration: none;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-repeat: no-repeat;
+  background-position: left 100%;
+  background-size: 0% 2px;
+  transition: background-size 0.32s cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+.menu a:hover span:not(.active) {
+  background-size: 100% 2px;
+}
+
 /* ---------- In-text / body links across the whole site ----------
    Same colour as the surrounding text (no blue), with a faint underline always
    present (so a reader knows it's a link without relying on colour) and a
@@ -227,6 +244,15 @@
 }
 .project-content > h2:first-child {
   margin-top: 1.5rem;
+}
+/* Bold run-in lead-ins (e.g. "Temporal density.") read as mini-subsections:
+   give them extra air above so the bolding doesn't blend into body text */
+.project-content p:has(> strong:first-child) {
+  margin-top: 1.9rem;
+}
+.project-content h2 + p:has(> strong:first-child),
+.project-content h3 + p:has(> strong:first-child) {
+  margin-top: 0;
 }
 .project-single-links {
   display: flex;

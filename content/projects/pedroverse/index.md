@@ -25,10 +25,10 @@ A shader built in Blender often can't be exported to a game engine for rapid pro
 </figure>
 
 - **Style transfer**: a lightweight pretrained model encodes content and style images, then interpolates by a user-controlled content-to-style ratio (high-quality textures in ~2–3 s).
-- **Palette recoloring**: palette-based photo recoloring with a modified **k-means in LAB space**; the artist edits the extracted palette through an HSV colour picker.
-- **Geometric abstraction**: four interchangeable structural filters: classical **stroke-based rendering** (Bézier brush strokes swept along image gradients), the neural **Paint Transformer**, **SLIC** superpixels, **Pyxelate** 8-bit pixelation, and an anime-style Voronoi watercolour effect.
+- **Palette recoloring**: palette-based photo recoloring with a modified **k-means in LAB space**; the artist edits the extracted palette through an HSV color picker.
+- **Geometric abstraction**: four interchangeable structural filters: classical **stroke-based rendering** (Bézier brush strokes swept along image gradients), the neural **Paint Transformer**, **SLIC** superpixels, **Pyxelate** 8-bit pixelation, and an anime-style Voronoi watercolor effect.
 
-The hard part is applying these to the **normal map**: a wrong colour shift there changes the direction light bounces off the surface, producing artifacts. We found that **gradient-aware methods** (brush strokes) are far safer than noisy splatting (neural paint), that **low SLIC compactness** suppresses sudden curvature shifts, and that a **bitwise mask** between the stylized and original normal map keeps everything inside valid UV space.
+The hard part is applying these to the **normal map**: a wrong color shift there changes the direction light bounces off the surface, producing artifacts. We found that **gradient-aware methods** (brush strokes) are far safer than noisy splatting (neural paint), that **low SLIC compactness** suppresses sudden curvature shifts, and that a **bitwise mask** between the stylized and original normal map keeps everything inside valid UV space.
 
 ## Implementation & results
 

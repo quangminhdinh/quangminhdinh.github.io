@@ -31,11 +31,11 @@ Because every camera is static and backgrounds are stable, I generated a **motio
 
 ### The dual-vehicle attribute system
 
-The core idea: many queries describe **two nearby vehicles**, and that second vehicle is free supervision. I extract attributes (type, colour, size, motion, and an "intersection" flag) by frequency-analysing the dataset's vocabulary, prioritising pairs of same-category words (`type1`/`type2`, `color1`/`color2`) that co-occur in a query.
+The core idea: many queries describe **two nearby vehicles**, and that second vehicle is free supervision. I extract attributes (type, color, size, motion, and an "intersection" flag) by frequency-analysing the dataset's vocabulary, prioritising pairs of same-category words (`type1`/`type2`, `color1`/`color2`) that co-occur in a query.
 
 <figure>
   <img src="word-frequencies.jpg" alt="Attribute word frequencies in the dataset">
-  <figcaption>Frequencies of words describing vehicle type, motion, size, and colour: the basis for the attribute categories.</figcaption>
+  <figcaption>Frequencies of words describing vehicle type, motion, size, and color: the basis for the attribute categories.</figcaption>
 </figure>
 
 These attributes drive two mechanisms:
