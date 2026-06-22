@@ -14,4 +14,4 @@ My claim: the gap isn't in the policy, it's in the representation. If two agents
 
 The {{< wl "reachy-pilot-study" >}} is one concrete example of this in miniature. Even with good perception, our VLM picked generic expressions because it lacked a persistent scene model of the human it was engaging with.
 
-Related: {{< wl "multi-agent-grounding" >}}.
+Related: {{< wl "multi-agent-grounding" >}}, and a much smaller instance of the same failure in {{< wl "shared-state-is-a-tiny-world-model" >}}.
