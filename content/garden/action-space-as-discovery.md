@@ -9,7 +9,7 @@ tags: ["world-models", "grounding", "game-design"]
 links: ["world-models", "multi-agent-grounding"]
 ---
 
-Jesse Schell makes an observation in *The Art of Game Design: A Book of Lenses* that I keep coming back to for reasons that have nothing to do with games.
+Jesse Schell makes an observation in *[The Art of Game Design: A Book of Lenses](https://en.wikipedia.org/wiki/The_Art_of_Game_Design:_A_Book_of_Lenses)* that I keep coming back to for reasons that have nothing to do with games.
 
 Early text adventures supported hundreds of verbs, and part of playing was discovering which actions even existed. You found puzzles by guessing that you could "spin the fish" or "tickle the monkey." Modern visual games shrank that down to a small, fully known action set, because you can't render an arbitrary verb. Schell's twist is that the old openness was partly an illusion: for every verb the parser knew, there were thousands it didn't, and that mismatch was its own kind of frustration.
 

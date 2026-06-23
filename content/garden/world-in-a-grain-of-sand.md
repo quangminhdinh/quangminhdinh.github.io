@@ -14,7 +14,7 @@ links: ["world-models", "what-is-a-world-state", "conditioning-is-an-assumption"
 > Hold Infinity in the palm of your hand,
 > And Eternity in an hour.
 >
-> — William Blake, *Auguries of Innocence*
+> — William Blake, *[Auguries of Innocence](https://en.wikipedia.org/wiki/Auguries_of_Innocence)*
 
 I read this as a statement of the world-model aspiration, which is almost certainly not what Blake meant.
 
