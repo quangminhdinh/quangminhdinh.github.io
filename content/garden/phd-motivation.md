@@ -1,5 +1,5 @@
 ---
-title: "Why a PhD, and why now"
+title: "Why now"
 date: 2026-02-01
 lastmod: 2026-04-10
 description: "A personal note on the path from audio processing at Huawei to wanting to spend six years on world models."

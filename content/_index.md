@@ -4,7 +4,7 @@ title: "Home"
 
 ## News
 
-- **Apr 2026:** Incoming PhD student! More details soon.
+<!-- - **Apr 2026:** Incoming PhD student! More details soon. -->
 - **Apr 2026:** Poster talk at SFU Undergraduate Research Symposium (UGRS) 2026 on real-time non-verbal HRI with Reachy Mini.
 - **Mar 2026:** Poster talk at IEEE Vancouver Section Annual General Meeting (AGM) 2026.
 - **Jan 2026:** Joined [Rosie Lab](https://www.rosielab.ca/) at SFU as a student researcher under [Prof. Angelica Lim](https://angelicalim.com/), working on real-time human–robot interaction.
