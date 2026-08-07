@@ -19,6 +19,16 @@ hidemeta: true
 ## Publications
 
 {{< project
+  title="CosmosAlign: Adapting a World Foundation Model for Generative Traffic Video Forecasting"
+  venue="ECCV Workshops · AI City Challenge 2026 · 1st place, Track 5"
+  image="/images/pub-cosmosalign.jpg"
+  page="https://quangminhdinh.github.io/CosmosAlign/"
+  links="Project=https://quangminhdinh.github.io/CosmosAlign/;Code=https://github.com/quangminhdinh/CosmosAlign;Checkpoints=https://1sfu-my.sharepoint.com/:f:/g/personal/qmd_sfu_ca/IgCHmpZo5zOYQpOBoa-hWHI4AacBHxOvqmHUSpk_mMgAZUQ?e=ciu8Mb"
+>}}
+**Quang Minh Dinh**, Tuan Kiet Doan
+{{< /project >}}
+
+{{< project
   title="BERSting at the screams: A benchmark for distanced, emotional and shouted speech recognition"
   venue="Computer Speech and Language, vol. 95 · 2026"
   image="/images/pub-berst.jpg"

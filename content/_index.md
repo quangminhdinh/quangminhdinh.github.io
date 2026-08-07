@@ -5,6 +5,7 @@ title: "Home"
 ## News
 
 <!-- - **Apr 2026:** Incoming PhD student! More details soon. -->
+- **Aug 2026:** [CosmosAlign](https://quangminhdinh.github.io/CosmosAlign/) ranked 1st in Track 5 of the **AI City Challenge 2026**, adapting a world foundation model for generative traffic video forecasting.
 - **Apr 2026:** Poster talk at SFU Undergraduate Research Symposium (UGRS) 2026 on real-time non-verbal HRI with Reachy Mini.
 - **Mar 2026:** Poster talk at IEEE Vancouver Section Annual General Meeting (AGM) 2026.
 - **Jan 2026:** Joined [Rosie Lab](https://www.rosielab.ca/) at SFU as a student researcher under [Prof. Angelica Lim](https://angelicalim.com/), working on real-time human–robot interaction.
