@@ -10,6 +10,10 @@ buildExpired = false
 
 pygmentsUseClasses = true
 
+[services]
+  [services.googleAnalytics]
+    ID = "G-MD1K8SMKDW"
+
 [minify]
   disableXML = true
   minifyOutput = true
