@@ -13,7 +13,7 @@ hidemeta: true
   page="https://quangminhdinh.github.io/nonverbal-reachy/"
   links="Paper=https://quangminhdinh.github.io/nonverbal-reachy/static/nonverbal_reachy.pdf;Project=https://quangminhdinh.github.io/nonverbal-reachy/;Autonomous Code=https://github.com/S-Gemmin/nonverbal-reachy;Teleop Code=https://github.com/stella05925/reachy_teleop;Video=https://www.youtube.com/watch?v=ICc36q10hZw;Poster=https://canva.link/n3kgd0eqzafqzjw"
 >}}
-**Quang Minh Dinh\***, Stella Lin\*, Gemmin Sugiura\*, Bita Azari, Yasaman Etesam, Chuxuan Zhang, Angelica Lim
+**Quang Minh Dinh\***, Stella Lin\*, Gemmin Sugiura, Bita Azari, Yasaman Etesam, Chuxuan Zhang, Angelica Lim
 {{< /project >}}
 
 ## Publications
