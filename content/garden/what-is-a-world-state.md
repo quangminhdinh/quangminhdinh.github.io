@@ -1,12 +1,12 @@
 ---
 title: "What even is a world state?"
 date: 2023-08-15
-lastmod: 2026-06-22
+lastmod: 2026-10-24
 description: "We talk about world models as if 'the state' were given. The representation is the hard part."
-status: "seedling"
+status: "budding"
 notekind: "concept"
 tags: ["world-models", "research-agenda"]
-links: ["world-models", "conditioning-is-an-assumption"]
+links: ["world-models", "conditioning-is-an-assumption", "ai-director"]
 ---
 
 Most discussion of world models treats "the world state" as a given object you read off and predict forward. I keep getting stuck one step earlier: what *is* a world state, concretely?
@@ -19,4 +19,6 @@ The open questions I can't yet answer cleanly:
 
 The reason this isn't just bookkeeping: the representation *is* the problem, not a detail you settle before the real work. That's the same lesson as {{< wl "conditioning-is-an-assumption" >}}, the encoding has to match the thing it's trying to steer. A "world state" you can't ground in a representation is just a word.
 
-A seedling, deliberately. Back to {{< wl "world-models" >}}.
+**Update, Oct 2026.** I've committed to an answer to the first question, at least for now. The state holds the 3D layout and appearance of the scene, its physical properties, and the positions and goals of the agents in it, and a generative model renders it into video. Goals are the part I would have left out earlier. The Reachy pilot and CosmosAlign both broke on what the agents were trying to do, not on geometry.
+
+The other two questions are still open, and so is a new one: how much of the state should be learned, and how much written down? Back to {{< wl "world-models" >}}, and to {{< wl "ai-director" >}} for what acts on the state once it exists.

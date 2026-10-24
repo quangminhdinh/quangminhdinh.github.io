@@ -40,8 +40,8 @@ pygmentsUseClasses = true
 [params]
   env = "production"
   title = "Quang Minh Dinh"
-  description = "Incoming PhD student interested in world models and multi-agent social interaction."
-  keywords = ["Quang Minh Dinh", "PhD", "world models", "machine learning", "computer vision"]
+  description = "ML researcher working on world models with an explicit, shared world state, and an AI director that intervenes on it to learn causal structure."
+  keywords = ["Quang Minh Dinh", "PhD", "world models", "world state", "AI director", "causality", "generative models", "machine learning", "computer vision"]
   author = "Quang Minh Dinh"
   DateFormat = "Jan 2, 2006"
   defaultTheme = "auto"
@@ -67,7 +67,7 @@ pygmentsUseClasses = true
     imageUrl = "images/profile.jpg"
     imageTitle = "Quang Minh Dinh"
     Content = """
-I'm interested in **world models** and **multi-agent social interaction**: how agents can maintain a shared understanding of their environment so that planning, coordination, and social behaviour feel seamless and lifelike rather than scripted.
+I'm interested in **world models** that simulate the world through an **explicit, shared world state**: the 3D layout and appearance of a scene, its physical properties, and the positions and goals of the agents in it, rendered into video by a generative model. Today's world models keep this state only implicitly in the frames they generate, so they lose track of agents that leave the view, and controls like text or player inputs end up competing with the pixels instead of acting on the world. In the long term, I want to build an **AI director** that intervenes on this state to make events happen and compares how the world unfolds with and without each intervention, as a way to learn the causal structure of the world.
 
 I completed my B.Sc. in Computing Science with Distinction at **Simon Fraser University**, where I work with [Angelica Lim](https://angelicalim.com/) at [Rosie Lab](https://www.rosielab.ca/) on real-time non-verbal human–robot interaction, and previously with [Ke Li](https://www.sfu.ca/~keli/) at [APEX Lab](https://sfuapex.ca/) on text-conditional generative models. Before SFU, I interned at **Huawei** on real-time acoustic echo cancellation, which grew into my first-author paper at Interspeech 2025.
 """

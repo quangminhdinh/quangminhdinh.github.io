@@ -1,12 +1,12 @@
 ---
 title: "What would it actually take to build Royal Road?"
 date: 2026-06-22
-lastmod: 2026-06-22
+lastmod: 2026-10-24
 description: "Through a researcher's lens: the properties that make Royal Road great, how close today's LLM-driven games get, and the gap that remains."
 status: "budding"
 notekind: "concept"
 tags: ["world-models", "emergence", "research-agenda"]
-links: ["shared-channel-not-shared-world", "what-is-a-world-state", "action-space-as-discovery", "world-models", "phd-motivation"]
+links: ["shared-channel-not-shared-world", "what-is-a-world-state", "action-space-as-discovery", "world-models", "ai-director", "phd-motivation"]
 ---
 
 Strip away the fandom and read [Royal Road](https://the-legendary-moonlight-sculptor.fandom.com/wiki/Royal_Road) as a spec. Why is it great, and what would building it actually require?
@@ -21,4 +21,4 @@ The honest status of each, in current terms:
 
 The gap is that nobody has these *at the same time, over one persistent world, at scale*. We can generate a world, or simulate a few dozen agents, or get one emergent storyline, but not all of it in a single shared substrate that thousands of agents and players alter together and that remembers what they did.
 
-So "how to make it" isn't a content problem, it's a representation problem: {{< wl "what-is-a-world-state" >}} and {{< wl "action-space-as-discovery" >}} done well enough that {{< wl "world-models" >}} can carry a whole society. That's the part I think is {{< wl "phd-motivation" >}}.
+So "how to make it" isn't a content problem, it's a representation problem: {{< wl "what-is-a-world-state" >}} and {{< wl "action-space-as-discovery" >}} done well enough that {{< wl "world-models" >}} can carry a whole society. And once that substrate exists, the stories don't have to be scripted either: a {{< wl "ai-director" "director" >}} can set events in motion and let the world decide what they lead to. That's the part I think is {{< wl "phd-motivation" >}}.
